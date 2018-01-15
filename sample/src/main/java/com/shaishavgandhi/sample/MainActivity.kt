@@ -2,9 +2,9 @@ package com.shaishavgandhi.sample
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.formats.NativeAppInstallAd
+import com.shaishavgandhi.rxads.RxAdLoader
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
@@ -29,9 +29,5 @@ class MainActivity : AppCompatActivity() {
                     }
 
                 })
-
-        RxAdLoader(this, "")
-
-        AdLoader.Builder(this, "")
     }
 }

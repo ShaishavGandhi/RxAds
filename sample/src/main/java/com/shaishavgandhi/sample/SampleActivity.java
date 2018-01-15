@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.formats.NativeAppInstallAd;
+import com.shaishavgandhi.rxads.RxAdLoader;
 
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;

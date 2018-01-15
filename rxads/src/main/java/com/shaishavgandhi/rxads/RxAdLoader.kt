@@ -1,4 +1,4 @@
-package com.shaishavgandhi.sample
+package com.shaishavgandhi.rxads
 
 import android.content.Context
 import com.google.android.gms.ads.AdListener
@@ -7,7 +7,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.doubleclick.PublisherAdRequest
 import com.google.android.gms.ads.formats.NativeAppInstallAd
 import com.google.android.gms.ads.formats.NativeCustomTemplateAd
-import com.shaishavgandhi.sample.error.AdRequestErrorException
+import com.shaishavgandhi.rxads.error.AdRequestErrorException
 import io.reactivex.Observable
 import io.reactivex.Single
 
