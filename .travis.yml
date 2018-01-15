@@ -1,0 +1,28 @@
+language: android
+before_install:
+  - yes | sdkmanager "platforms;android-27"
+android:
+        components:
+                - tools
+                - platform-tools
+                - build-tools-26.0.2
+                - android-26
+                - tools
+                - extra
+                - extra-android-support
+                - extra-android-m2repository
+                - extra-google-m2repository
+
+jdk:
+        - oraclejdk8
+
+before_install:
+        - chmod +x gradlew
+notifications:
+        email: false
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.gradle
