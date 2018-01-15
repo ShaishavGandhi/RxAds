@@ -1,4 +1,4 @@
-package com.shaishavgandhi.sample.error;
+package com.shaishavgandhi.rxads.error;
 
 import android.support.annotation.IntDef;
 

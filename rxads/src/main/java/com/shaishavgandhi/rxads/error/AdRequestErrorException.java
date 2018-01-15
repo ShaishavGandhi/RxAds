@@ -1,4 +1,4 @@
-package com.shaishavgandhi.sample.error;
+package com.shaishavgandhi.rxads.error;
 
 /**
  * Created by shaishav.gandhi on 1/13/18.
