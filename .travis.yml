@@ -1,6 +1,7 @@
 language: android
 before_install:
   - yes | sdkmanager "platforms;android-27"
+  - chmod +x gradlew
 android:
         components:
                 - tools
@@ -16,8 +17,6 @@ android:
 jdk:
         - oraclejdk8
 
-before_install:
-        - chmod +x gradlew
 notifications:
         email: false
 
