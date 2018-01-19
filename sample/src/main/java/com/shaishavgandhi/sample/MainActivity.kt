@@ -8,6 +8,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.formats.NativeAppInstallAd
+import com.google.android.gms.ads.formats.NativeContentAd
 import com.shaishavgandhi.rxads.RxAdLoader
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var headlineView: TextView
     lateinit var imageView: ImageView
     lateinit var nativeInstallButton: Button
+    lateinit var nativeContentButton: Button
 
     var disposables = CompositeDisposable()
 
@@ -28,16 +30,21 @@ class MainActivity : AppCompatActivity() {
         headlineView = findViewById(R.id.headline)
         imageView = findViewById(R.id.image)
         nativeInstallButton = findViewById(R.id.installAd)
+        nativeContentButton = findViewById(R.id.contentAd)
 
 
         nativeInstallButton.setOnClickListener {
-            loadAd()
+            loadNativeInstallAd()
+        }
+
+        nativeContentButton.setOnClickListener {
+            loadNativeContentAd()
         }
 
     }
 
-    private fun loadAd() {
-        RxAdLoader(this, "ca-app-pub-3940256099942544/2247696110")
+    private fun loadNativeInstallAd() {
+        val disposable = RxAdLoader(this, "ca-app-pub-3940256099942544/2247696110")
                 .loadInstallAd(AdRequest.Builder().build())
                 .subscribeWith(object : DisposableSingleObserver<NativeAppInstallAd>() {
 
@@ -50,5 +57,29 @@ class MainActivity : AppCompatActivity() {
                         e.printStackTrace()
                     }
                 })
+
+        disposables.add(disposable)
+    }
+
+    private fun loadNativeContentAd() {
+        val disposable = RxAdLoader(this, "ca-app-pub-3940256099942544/2247696110")
+                .loadNativeContentAd(AdRequest.Builder().build())
+                .subscribeWith(object : DisposableSingleObserver<NativeContentAd>() {
+                    override fun onSuccess(contentAd: NativeContentAd) {
+                        headlineView.text = contentAd.headline
+                        Glide.with(imageView).load(contentAd.images[0].uri).into(imageView)
+                    }
+
+                    override fun onError(e: Throwable) {
+                    }
+
+                })
+
+        disposables.add(disposable)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        disposables.dispose()
     }
 }
