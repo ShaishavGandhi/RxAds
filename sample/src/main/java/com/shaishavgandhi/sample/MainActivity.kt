@@ -12,6 +12,7 @@ import com.google.android.gms.ads.formats.NativeAppInstallAd
 import com.google.android.gms.ads.formats.NativeContentAd
 import com.shaishavgandhi.rxads.RxAdLoader
 import com.shaishavgandhi.rxads.RxInterstitialAd
+import com.shaishavgandhi.rxads.asSingle
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
