@@ -10,7 +10,7 @@ import io.reactivex.Single
 /**
  * Created by shaishav.gandhi on 1/18/18.
  */
-class RxInterstitialAd(val context: Context) {
+class RxInterstitialAd(private val context: Context) {
 
     fun loadAd(adUnitId : String, adRequest: AdRequest): Single<InterstitialAd> {
         return Single.create { emitter ->

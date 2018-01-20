@@ -7,9 +7,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.formats.NativeAppInstallAd
 import com.google.android.gms.ads.formats.NativeContentAd
 import com.shaishavgandhi.rxads.RxAdLoader
+import com.shaishavgandhi.rxads.RxInterstitialAd
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
@@ -20,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var imageView: ImageView
     lateinit var nativeInstallButton: Button
     lateinit var nativeContentButton: Button
+    lateinit var interstitalButton: Button
 
     var disposables = CompositeDisposable()
 
@@ -31,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         imageView = findViewById(R.id.image)
         nativeInstallButton = findViewById(R.id.installAd)
         nativeContentButton = findViewById(R.id.contentAd)
+        interstitalButton = findViewById(R.id.interstitialAd)
 
 
         nativeInstallButton.setOnClickListener {
@@ -39,6 +43,10 @@ class MainActivity : AppCompatActivity() {
 
         nativeContentButton.setOnClickListener {
             loadNativeContentAd()
+        }
+
+        interstitalButton.setOnClickListener {
+            loadInterstitialAd()
         }
 
     }
@@ -76,6 +84,21 @@ class MainActivity : AppCompatActivity() {
                 })
 
         disposables.add(disposable)
+    }
+
+    private fun loadInterstitialAd() {
+        RxInterstitialAd(this)
+                .loadAd("ca-app-pub-3940256099942544/1033173712", AdRequest.Builder().build())
+                .subscribeWith(object : DisposableSingleObserver<InterstitialAd>() {
+                    override fun onError(e: Throwable) {
+
+                    }
+
+                    override fun onSuccess(interstitialAd: InterstitialAd) {
+                        interstitialAd.show()
+                    }
+
+                })
     }
 
     override fun onDestroy() {
