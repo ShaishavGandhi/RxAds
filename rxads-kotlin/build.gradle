@@ -16,6 +16,10 @@ android {
 
     }
 
+    dexOptions {
+        preDexLibraries = false
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -26,9 +30,6 @@ android {
 
 dependencies {
     implementation project(":rxads")
-
-    api "com.google.android.gms:play-services-ads:11.8.0"
-    api "io.reactivex.rxjava2:rxjava:2.1.5"
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
     testImplementation 'junit:junit:4.12'
