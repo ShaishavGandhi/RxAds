@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/RxAds.iml" filepath="$PROJECT_DIR$/RxAds.iml" />
       <module fileurl="file://$PROJECT_DIR$/sample/app.iml" filepath="$PROJECT_DIR$/sample/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/rxads/rxads.iml" filepath="$PROJECT_DIR$/rxads/rxads.iml" />
-      <module fileurl="file://$PROJECT_DIR$/rxads-kotlin/rxads-kotlin.iml" filepath="$PROJECT_DIR$/rxads-kotlin/rxads-kotlin.iml" />
       <module fileurl="file://$PROJECT_DIR$/sample/sample.iml" filepath="$PROJECT_DIR$/sample/sample.iml" />
     </modules>
   </component>
