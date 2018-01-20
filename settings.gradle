@@ -1,1 +1,1 @@
-include ':sample', ':rxads'
+include ':sample', ':rxads', ':rxads-kotlin'
