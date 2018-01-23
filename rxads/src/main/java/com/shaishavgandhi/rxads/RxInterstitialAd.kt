@@ -1,6 +1,7 @@
 package com.shaishavgandhi.rxads
 
 import android.content.Context
+import android.support.annotation.MainThread
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
@@ -12,7 +13,7 @@ import io.reactivex.Single
  */
 class RxInterstitialAd(private val context: Context) {
 
-    fun loadAd(adUnitId : String, adRequest: AdRequest): Single<InterstitialAd> {
+    @MainThread fun loadAd(adUnitId : String, adRequest: AdRequest): Single<InterstitialAd> {
         return Single.create { emitter ->
             val interstitalAd = InterstitialAd(context)
             interstitalAd.adUnitId = adUnitId
