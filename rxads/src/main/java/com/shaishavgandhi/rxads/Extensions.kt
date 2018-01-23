@@ -13,7 +13,6 @@ import io.reactivex.Single
  * Created by shaishav.gandhi on 1/19/18.
  */
 
-@SuppressLint("MissingPermission")
 inline fun InterstitialAd.asSingle(adRequest: AdRequest): Single<InterstitialAd> = Single.create { emitter ->
     this.adListener = object : AdListener() {
         override fun onAdLoaded() {
