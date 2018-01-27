@@ -13,6 +13,16 @@ import io.reactivex.Single
  */
 class RxInterstitialAd(private val context: Context) {
 
+    /**
+     * Load an interstitial ad with the AdLoader
+     * that is provided. Should be called from
+     * the main thread
+     *
+     * @param adUnitId ad unit
+     * @param adRequest AdRequest
+     *
+     * @return Single<InterstitialAd>
+     */
     @MainThread fun loadAd(adUnitId : String, adRequest: AdRequest): Single<InterstitialAd> {
         return Single.create { emitter ->
             val interstitalAd = InterstitialAd(context)
