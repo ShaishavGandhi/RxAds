@@ -1,5 +1,5 @@
 # RxAds
-RxJava wrapper for Play Services Ads
+RxJava wrapper for Play Services Ads (Work in Progress)
 
 ## Usage
 

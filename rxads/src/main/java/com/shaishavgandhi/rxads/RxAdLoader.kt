@@ -18,6 +18,14 @@ import io.reactivex.Single
  */
 class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context, adUnitId) {
 
+    /**
+     * Load a native install ad using the provided
+     * PublisherAdRequest. Must be called from
+     * the main thread
+     *
+     * @param adRequest PublisherAdRequest
+     * @return Single<NativeAppInstallAd>
+     */
     @MainThread fun loadInstallAd(adRequest: PublisherAdRequest): Single<NativeAppInstallAd> {
         return Single.create { emitter ->
             this.forAppInstallAd { nativeAppInstallAd ->
@@ -31,6 +39,13 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
         }
     }
 
+    /**
+     * Load a native install ad with the provided
+     * AdRequest. Must be called from main thread
+     *
+     * @param adRequest AdRequest
+     * @return Single<NativeAppInstallAd>
+     */
     @MainThread fun loadInstallAd(adRequest: AdRequest): Single<NativeAppInstallAd> {
         return Single.create { emitter ->
             this.forAppInstallAd { nativeAppInstallAd ->
@@ -44,7 +59,16 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
         }
     }
 
-    @MainThread fun loadInstallAd(adRequest: AdRequest, count: Int): Observable<NativeAppInstallAd> {
+    /**
+     * Load multiple native install ads with
+     * provided AdRequest. Called from
+     * main thread
+     *
+     * @param adRequest AdRequest
+     * @param count number of ads to load
+     * @return Observable<NativeAppInstallAd>
+     */
+    @MainThread fun loadInstallAds(adRequest: AdRequest, count: Int): Observable<NativeAppInstallAd> {
         return Observable.create { emitter ->
             this.forAppInstallAd { nativeAppInstallAd ->
                 emitter.onNext(nativeAppInstallAd)
@@ -57,6 +81,15 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
         }
     }
 
+    /**
+     * Load native custom template ad using provided
+     * templateId and adRequest. Call from main thread
+     *
+     * @param template templateId
+     * @param adRequest AdRequest
+     *
+     * @return Single<NativeCustomTemplateAd>
+     */
     @MainThread fun loadNativeCustomTemplateAd(template: String, adRequest: AdRequest): Single<NativeCustomTemplateAd> {
         return Single.create { emitter ->
             this.forCustomTemplateAd(template, {
@@ -70,6 +103,16 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
         }
     }
 
+    /**
+     * Load native custom template ad using provided
+     * template and publisherAdRequest. Call from
+     * main thread
+     *
+     * @param template templateId
+     * @param adRequest PublisherAdRequest
+     *
+     * @return Single<NativeCustomTemplateAd>
+     */
     @MainThread fun loadNativeCustomTemplateAd(template: String, adRequest: PublisherAdRequest): Single<NativeCustomTemplateAd> {
         return Single.create { emitter ->
             this.forCustomTemplateAd(template, {
@@ -83,7 +126,17 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
         }
     }
 
-    @MainThread fun loadNativeCustomTemplateAd(template: String, adRequest: AdRequest, count: Int): Observable<NativeCustomTemplateAd> {
+    /**
+     * Load multiple native custom template ad using
+     * provided template, adRequest and count. Call
+     * from main thread
+     *
+     * @param template templateId
+     * @param adRequest AdRequest
+     * @param count number of ads to call
+     * @return Observable<NativeCustomTemplateAd>
+     */
+    @MainThread fun loadNativeCustomTemplateAds(template: String, adRequest: AdRequest, count: Int): Observable<NativeCustomTemplateAd> {
         return Observable.create { emitter ->
             this.forCustomTemplateAd(template, {
                 emitter.onNext(it)
@@ -96,6 +149,13 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
         }
     }
 
+    /**
+     * Load native content ad given the adRequest.
+     * Must be called from the main thread
+     *
+     * @param adRequest AdRequest
+     * @return Single<NativeContentAd>
+     */
     @MainThread fun loadNativeContentAd(adRequest: AdRequest): Single<NativeContentAd> {
         return Single.create { emitter ->
             this.forContentAd { ad ->
@@ -109,6 +169,13 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
         }
     }
 
+    /**
+     * Load native content ad with given publisherAdRequest
+     * Call from main thread
+     *
+     * @param adRequest PublisherAdRequest
+     * @return Single<NativeContentAd>
+     */
     @MainThread fun loadNativeContentAd(adRequest: PublisherAdRequest): Single<NativeContentAd> {
         return Single.create { emitter ->
             this.forContentAd { ad ->
@@ -119,6 +186,28 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
                     emitter.onError(AdRequestErrorException(errorCode))
                 }
             }).build().loadAd(adRequest)
+        }
+    }
+
+    /**
+     * Load multiple native content ads given the
+     * adRequest and count of ads
+     *
+     * @param adRequest AdRequest
+     * @param count number of ads to load
+     *
+     * @return Single<NativeContentAd>
+     */
+    @MainThread fun loadNativeContentAds(adRequest: AdRequest, count: Int): Single<NativeContentAd> {
+        return Single.create { emitter ->
+            this.forContentAd { ad ->
+                emitter.onSuccess(ad)
+            }.withAdListener(object : AdListener() {
+                override fun onAdFailedToLoad(errorCode: Int) {
+                    super.onAdFailedToLoad(errorCode)
+                    emitter.onError(AdRequestErrorException(errorCode))
+                }
+            }).build().loadAds(adRequest, count)
         }
     }
 
