@@ -11,19 +11,13 @@ import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.formats.NativeAppInstallAd
 import com.google.android.gms.ads.formats.NativeContentAd
 import com.shaishavgandhi.rxads.RxAdLoader
-import com.shaishavgandhi.rxads.RxInterstitialAd
 import com.shaishavgandhi.rxads.asSingle
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
-import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var headlineView: TextView
-    lateinit var imageView: ImageView
-    lateinit var nativeInstallButton: Button
-    lateinit var nativeContentButton: Button
-    lateinit var interstitalButton: Button
 
     var disposables = CompositeDisposable()
 
@@ -31,22 +25,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        headlineView = findViewById(R.id.headline)
-        imageView = findViewById(R.id.image)
-        nativeInstallButton = findViewById(R.id.installAd)
-        nativeContentButton = findViewById(R.id.contentAd)
-        interstitalButton = findViewById(R.id.interstitialAd)
-
-
-        nativeInstallButton.setOnClickListener {
+        installAd.setOnClickListener {
             loadNativeInstallAd()
         }
 
-        nativeContentButton.setOnClickListener {
+        contentAd.setOnClickListener {
             loadNativeContentAd()
         }
 
-        interstitalButton.setOnClickListener {
+        interstitialAd.setOnClickListener {
             loadInterstitialAd()
         }
 
@@ -58,8 +45,8 @@ class MainActivity : AppCompatActivity() {
                 .subscribeWith(object : DisposableSingleObserver<NativeAppInstallAd>() {
 
                     override fun onSuccess(installAd: NativeAppInstallAd) {
-                        headlineView.text = installAd.headline
-                        Glide.with(imageView).load(installAd.images[0].uri).into(imageView)
+                        headline.text = installAd.headline
+                        Glide.with(image).load(installAd.images[0].uri).into(image)
                     }
 
                     override fun onError(e: Throwable) {
@@ -75,8 +62,8 @@ class MainActivity : AppCompatActivity() {
                 .loadNativeContentAd(AdRequest.Builder().build())
                 .subscribeWith(object : DisposableSingleObserver<NativeContentAd>() {
                     override fun onSuccess(contentAd: NativeContentAd) {
-                        headlineView.text = contentAd.headline
-                        Glide.with(imageView).load(contentAd.images[0].uri).into(imageView)
+                        headline.text = contentAd.headline
+                        Glide.with(image).load(contentAd.images[0].uri).into(image)
                     }
 
                     override fun onError(e: Throwable) {
