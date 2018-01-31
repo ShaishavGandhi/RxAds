@@ -31,7 +31,7 @@ env:
 
 script:
   - android list target
-  - ./gradlew check connectedCheck --stacktrace
+  - ./gradlew connectedAndroidTest
 
 before_script:
   - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
