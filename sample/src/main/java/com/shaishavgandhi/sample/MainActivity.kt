@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadInterstitialAd() {
         val ad = InterstitialAd(this)
-        ad.adUnitId = "ad_unit_id"
+        ad.adUnitId = "ca-app-pub-3940256099942544/1033173712"
         ad.asSingle(AdRequest.Builder().build())
                 .subscribeWith(object : DisposableSingleObserver<InterstitialAd>() {
                     override fun onError(e: Throwable) {

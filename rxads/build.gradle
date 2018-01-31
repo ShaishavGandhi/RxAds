@@ -23,5 +23,8 @@ dependencies {
 
     api "com.google.android.gms:play-services-ads:11.8.0"
     api "io.reactivex.rxjava2:rxjava:2.1.5"
+    api 'io.reactivex.rxjava2:rxandroid:2.0.1'
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    androidTestImplementation "com.android.support.test:runner:1.0.1"
 }
