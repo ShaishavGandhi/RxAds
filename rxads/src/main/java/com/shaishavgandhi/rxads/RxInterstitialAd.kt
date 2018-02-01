@@ -25,13 +25,13 @@ class RxInterstitialAd(private val context: Context) {
      */
     @MainThread fun loadAd(adUnitId : String, adRequest: AdRequest): Single<InterstitialAd> {
         return Single.create { emitter ->
-            val interstitalAd = InterstitialAd(context)
-            interstitalAd.adUnitId = adUnitId
+            val interstitialAd = InterstitialAd(context)
+            interstitialAd.adUnitId = adUnitId
 
-            interstitalAd.adListener = object: AdListener() {
+            interstitialAd.adListener = object: AdListener() {
                 override fun onAdLoaded() {
                     super.onAdLoaded()
-                    emitter.onSuccess(interstitalAd)
+                    emitter.onSuccess(interstitialAd)
                 }
 
                 override fun onAdFailedToLoad(errorCode: Int) {
@@ -39,7 +39,7 @@ class RxInterstitialAd(private val context: Context) {
                     emitter.onError(AdRequestErrorException(errorCode))
                 }
             }
-            interstitalAd.loadAd(adRequest)
+            interstitialAd.loadAd(adRequest)
         }
     }
 
