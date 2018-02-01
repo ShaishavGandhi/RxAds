@@ -196,12 +196,12 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
      * @param adRequest AdRequest
      * @param count number of ads to load
      *
-     * @return Single<NativeContentAd>
+     * @return Observable<NativeContentAd>
      */
-    @MainThread fun loadNativeContentAds(adRequest: AdRequest, count: Int): Single<NativeContentAd> {
-        return Single.create { emitter ->
+    @MainThread fun loadNativeContentAds(adRequest: AdRequest, count: Int): Observable<NativeContentAd> {
+        return Observable.create { emitter ->
             this.forContentAd { ad ->
-                emitter.onSuccess(ad)
+                emitter.onNext(ad)
             }.withAdListener(object : AdListener() {
                 override fun onAdFailedToLoad(errorCode: Int) {
                     super.onAdFailedToLoad(errorCode)
