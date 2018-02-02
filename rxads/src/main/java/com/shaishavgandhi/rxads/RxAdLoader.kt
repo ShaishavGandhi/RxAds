@@ -9,6 +9,7 @@ import com.google.android.gms.ads.doubleclick.PublisherAdRequest
 import com.google.android.gms.ads.formats.NativeAppInstallAd
 import com.google.android.gms.ads.formats.NativeContentAd
 import com.google.android.gms.ads.formats.NativeCustomTemplateAd
+import com.shaishavgandhi.rxads.error.AdRequestError
 import com.shaishavgandhi.rxads.error.AdRequestErrorException
 import io.reactivex.Observable
 import io.reactivex.Single
@@ -33,7 +34,7 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
             }.withAdListener(object : AdListener() {
                 override fun onAdFailedToLoad(errorCode: Int) {
                     super.onAdFailedToLoad(errorCode)
-                    emitter.onError(AdRequestErrorException(errorCode))
+                    emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
                 }
             }).build().loadAd(adRequest)
         }
@@ -53,7 +54,7 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
             }.withAdListener(object : AdListener() {
                 override fun onAdFailedToLoad(errorCode: Int) {
                     super.onAdFailedToLoad(errorCode)
-                    emitter.onError(AdRequestErrorException(errorCode))
+                    emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
                 }
             }).build().loadAd(adRequest)
         }
@@ -75,7 +76,7 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
             }.withAdListener(object : AdListener() {
                 override fun onAdFailedToLoad(errorCode: Int) {
                     super.onAdFailedToLoad(errorCode)
-                    emitter.onError(AdRequestErrorException(errorCode))
+                    emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
                 }
             }).build().loadAds(adRequest, count)
         }
@@ -97,7 +98,7 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
             }, { _, _ -> }).withAdListener(object : AdListener() {
                 override fun onAdFailedToLoad(errorCode: Int) {
                     super.onAdFailedToLoad(errorCode)
-                    emitter.onError(AdRequestErrorException(errorCode))
+                    emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
                 }
             }).build().loadAd(adRequest)
         }
@@ -120,7 +121,7 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
             }, { _, _ -> }).withAdListener(object : AdListener() {
                 override fun onAdFailedToLoad(errorCode: Int) {
                     super.onAdFailedToLoad(errorCode)
-                    emitter.onError(AdRequestErrorException(errorCode))
+                    emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
                 }
             }).build().loadAd(adRequest)
         }
@@ -143,7 +144,7 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
             }, { _, _ -> }).withAdListener(object : AdListener() {
                 override fun onAdFailedToLoad(errorCode: Int) {
                     super.onAdFailedToLoad(errorCode)
-                    emitter.onError(AdRequestErrorException(errorCode))
+                    emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
                 }
             }).build().loadAds(adRequest, count)
         }
@@ -163,7 +164,7 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
             }.withAdListener(object : AdListener() {
                 override fun onAdFailedToLoad(errorCode: Int) {
                     super.onAdFailedToLoad(errorCode)
-                    emitter.onError(AdRequestErrorException(errorCode))
+                    emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
                 }
             }).build().loadAd(adRequest)
         }
@@ -183,7 +184,7 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
             }.withAdListener(object : AdListener() {
                 override fun onAdFailedToLoad(errorCode: Int) {
                     super.onAdFailedToLoad(errorCode)
-                    emitter.onError(AdRequestErrorException(errorCode))
+                    emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
                 }
             }).build().loadAd(adRequest)
         }
@@ -205,7 +206,7 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
             }.withAdListener(object : AdListener() {
                 override fun onAdFailedToLoad(errorCode: Int) {
                     super.onAdFailedToLoad(errorCode)
-                    emitter.onError(AdRequestErrorException(errorCode))
+                    emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
                 }
             }).build().loadAds(adRequest, count)
         }
