@@ -1,10 +1,7 @@
 package com.shaishavgandhi.sample
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.support.v7.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
@@ -67,6 +64,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     override fun onError(e: Throwable) {
+                        e.printStackTrace()
                     }
 
                 })
@@ -80,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         ad.asSingle(AdRequest.Builder().build())
                 .subscribeWith(object : DisposableSingleObserver<InterstitialAd>() {
                     override fun onError(e: Throwable) {
-
+                        e.printStackTrace()
                     }
 
                     override fun onSuccess(interstitialAd: InterstitialAd) {

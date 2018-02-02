@@ -5,6 +5,7 @@ import android.support.annotation.MainThread
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
+import com.shaishavgandhi.rxads.error.AdRequestError
 import com.shaishavgandhi.rxads.error.AdRequestErrorException
 import io.reactivex.Single
 
@@ -36,7 +37,7 @@ class RxInterstitialAd(private val context: Context) {
 
                 override fun onAdFailedToLoad(errorCode: Int) {
                     super.onAdFailedToLoad(errorCode)
-                    emitter.onError(AdRequestErrorException(errorCode))
+                    emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
                 }
             }
             interstitialAd.loadAd(adRequest)
