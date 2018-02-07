@@ -1,4 +1,5 @@
-# RxAds
+RxAds
+========
 RxJava wrapper for Play Services Ads. The library currently supports loading Native Ads (Native Content, Native Install, Native Custom Template) and Interstitial Ads.
 
 ## Philosophy
@@ -99,6 +100,15 @@ ad.asSingle(AdRequest.Builder().build())
 ```groovy
 implementation 'com.shaishavgandhi.rxads:rxads:0.1.0'
 ```
+
+## Contributing
+
+Contributions are welcome! We're always looking to expand the usecases and would love to accept PRs.
+
+If you would like to contribute code you can do so through GitHub by forking
+the repository and sending a pull request.
+
+Make sure your code compiles by running `./gradlew clean build`.
 
 ## License
     
