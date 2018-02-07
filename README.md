@@ -1,7 +1,7 @@
 # RxAds
 RxJava wrapper for Play Services Ads. The library currently supports loading Native Ads (Native Content, Native Install, Native Custom Template) and Interstitial Ads.
 
-## Philisophy
+## Philosophy
 RxAds' only aim is to make _ad loading_ reactive. The library does not provide ways to convert clicks to ads as streams or to provide various streams for it's varied callback. 
 
 However we do want all functionality to be present so that you can attach your own listeners etc. 
