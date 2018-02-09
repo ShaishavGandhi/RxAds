@@ -19,13 +19,13 @@ android {
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.12'
-    testImplementation "org.mockito:mockito-core:2.11.0"
+    testImplementation rootProject.ext.junit
+    testImplementation rootProject.ext.mockito
 
-    api "com.google.android.gms:play-services-ads:11.8.0"
-    api "io.reactivex.rxjava2:rxjava:2.1.5"
-    api 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    api rootProject.ext.ads
+    api rootProject.ext.rxJava
+    api rootProject.ext.rxAndroid
+    implementation rootProject.ext.kotlin
 
-    androidTestImplementation "com.android.support.test:runner:1.0.1"
+    androidTestImplementation rootProject.ext.testRunner
 }
