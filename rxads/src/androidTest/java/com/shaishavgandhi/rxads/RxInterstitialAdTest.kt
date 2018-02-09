@@ -8,6 +8,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.TestObserver
 import junit.framework.Assert.*
 import org.junit.Before
+import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.util.concurrent.TimeUnit
@@ -28,7 +29,7 @@ class RxInterstitialAdTest {
         interstitialAd = RxInterstitialAd(getTargetContext())
     }
 
-    @Test fun loadAdWithSampleAdUnitId() {
+    @Ignore @Test fun loadAdWithSampleAdUnitId() {
         val testObserver = TestObserver<InterstitialAd>()
         interstitialAd.loadAd(adUnitId, AdRequest.Builder().build())
                 .subscribeOn(AndroidSchedulers.mainThread())
@@ -41,7 +42,7 @@ class RxInterstitialAdTest {
                 .assertValue { !it.isLoading }
     }
 
-    @Test fun loadAdWithWrongAdUnitId() {
+    @Ignore @Test fun loadAdWithWrongAdUnitId() {
         val testObserver = TestObserver<InterstitialAd>()
         interstitialAd.loadAd("wrong_ad_unit", AdRequest.Builder().build())
                 .subscribeOn(AndroidSchedulers.mainThread())
