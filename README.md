@@ -101,6 +101,16 @@ ad.asSingle(AdRequest.Builder().build())
 implementation 'com.shaishavgandhi.rxads:rxads:0.1.0'
 ```
 
+A lot of projects have multiple Play Services library in a project. All Play Services libraries must have the same version to avoid runtime crashes. 
+
+There will be a release corresponding to every Play Services update starting from `11.8.0`  so you can easily integrate the library in your project. If you're using an older Play Services version, you can still integrate the project like so:
+```groovy
+implementation ('com.shaishavgandhi.rxads:rxads:0.1.0') {
+    exclude group: 'com.google.android.gms'
+}
+```
+and then add your preferred Play Services Ads version. 
+
 ## Contributing
 
 Contributions are welcome! We're always looking to expand the usecases and would love to accept PRs.
