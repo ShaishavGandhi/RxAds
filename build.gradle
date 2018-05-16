@@ -1,13 +1,13 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.2.20'
+    ext.kotlin_version = '1.2.41'
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -27,7 +27,7 @@ task clean(type: Delete) {
 }
 
 ext {
-    def playServicesVersion = "11.8.0"
+    def playServicesVersion = "15.0.1"
     def supportLibVersion = "27.0.2"
     def glideVersion = "4.5.0"
 
