@@ -1,5 +1,8 @@
 RxAds
 ========
+
+![Travis](https://img.shields.io/travis/shaishavgandhi05/RxAds.svg)
+
 RxJava wrapper for Play Services Ads. The library currently supports loading Native Ads (Native Content, Native Install, Native Custom Template) and Interstitial Ads.
 
 ## Philosophy
@@ -96,16 +99,16 @@ ad.asSingle(AdRequest.Builder().build())
 
 ## Download
 
-
+[![Maven Central](https://img.shields.io/maven-central/v/com.shaishavgandhi.rxads/rxads.svg)](https://mvnrepository.com/artifact/com.shaishavgandhi.rxads/rxads)
 ```groovy
-implementation 'com.shaishavgandhi.rxads:rxads:0.1.0'
+implementation 'com.shaishavgandhi.rxads:rxads:x.y.z'
 ```
 
 A lot of projects have multiple Play Services library in a project. All Play Services libraries must have the same version to avoid runtime crashes. 
 
 There will be a release corresponding to every Play Services update starting from `11.8.0`  so you can easily integrate the library in your project. If you're using an older Play Services version, you can still integrate the project like so:
 ```groovy
-implementation ('com.shaishavgandhi.rxads:rxads:0.1.0') {
+implementation ('com.shaishavgandhi.rxads:rxads:x.y.z') {
     exclude group: 'com.google.android.gms'
 }
 ```
