@@ -3,6 +3,7 @@ package com.shaishavgandhi.sample
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.formats.NativeAppInstallAd
@@ -54,6 +55,19 @@ class MainActivity : AppCompatActivity() {
         disposables.add(disposable)
     }
 
+    private fun loadUnifiedAd() {
+        val disposable = RxAdLoader(this, "ca-app-pub-3940256099942544/2247696110")
+                .loadUnifiedAd(AdRequest.Builder().build())
+                .subscribe({ ad ->
+                    headline.text = ad.headline
+                    Glide.with(image).load(ad.images[0].uri).into(image)
+                }, { error ->
+                    error.printStackTrace()
+                })
+
+        disposables.add(disposable)
+    }
+
     private fun loadNativeContentAd() {
         val disposable = RxAdLoader(this, "ca-app-pub-3940256099942544/2247696110")
                 .loadNativeContentAd(AdRequest.Builder().build())
@@ -68,6 +82,9 @@ class MainActivity : AppCompatActivity() {
                     }
 
                 })
+
+        AdLoader.Builder(this, "ca-app-pub-3940256099942544/2247696110")
+
 
         disposables.add(disposable)
     }
