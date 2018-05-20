@@ -9,6 +9,7 @@ import com.google.android.gms.ads.doubleclick.PublisherAdRequest
 import com.google.android.gms.ads.formats.NativeAppInstallAd
 import com.google.android.gms.ads.formats.NativeContentAd
 import com.google.android.gms.ads.formats.NativeCustomTemplateAd
+import com.google.android.gms.ads.formats.UnifiedNativeAd
 import com.shaishavgandhi.rxads.error.AdRequestError
 import com.shaishavgandhi.rxads.error.AdRequestErrorException
 import io.reactivex.Observable
@@ -211,6 +212,48 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
             }).build().loadAds(adRequest, count)
         }
     }
+
+    /**
+     * Load unified content ad given the adRequest.
+     * Should be called from the main thread
+     *
+     * @param adRequest AdRequest
+     * @return Single<UnifiedNativeAd>
+     */
+    @MainThread fun loadUnifiedAd(adRequest: AdRequest): Single<UnifiedNativeAd> {
+        return Single.create { emitter ->
+            this.forUnifiedNativeAd { ad ->
+                emitter.onSuccess(ad)
+            }.withAdListener(object : AdListener() {
+                override fun onAdFailedToLoad(errorCode: Int) {
+                    super.onAdFailedToLoad(errorCode)
+                    emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
+                }
+            }).build().loadAd(adRequest)
+        }
+    }
+
+    /**
+     * Load unified content ad given the adRequest.
+     * Should be called from the main thread
+     *
+     * @param adRequest PublisherAdRequest
+     * @return Single<UnifiedNativeAd>
+     */
+    @MainThread fun loadUnifiedAd(adRequest: PublisherAdRequest): Single<UnifiedNativeAd> {
+        return Single.create { emitter ->
+            this.forUnifiedNativeAd { ad ->
+                emitter.onSuccess(ad)
+            }.withAdListener(object : AdListener() {
+                override fun onAdFailedToLoad(errorCode: Int) {
+                    super.onAdFailedToLoad(errorCode)
+                    emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
+                }
+            }).build().loadAd(adRequest)
+        }
+    }
+
+
 
 
 

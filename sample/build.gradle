@@ -35,15 +35,9 @@ dependencies {
     implementation rootProject.ext.supportDesign
     implementation rootProject.ext.glide
     implementation rootProject.ext.cardView
-    implementation ("com.google.android.gms:play-services-analytics:11.2.0") {
-        force true
-    }
-    implementation "com.google.android.gms:play-services-ads:11.2.0"
     kapt rootProject.ext.glideCompiler
     testImplementation rootProject.ext.junit
 
-    implementation (project(":rxads")) {
-        exclude group: "com.google.android.gms"
-    }
+    implementation project(":rxads")
 
 }
