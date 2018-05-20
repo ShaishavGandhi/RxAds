@@ -103,16 +103,14 @@ ad.asSingle(AdRequest.Builder().build())
 ```groovy
 implementation 'com.shaishavgandhi.rxads:rxads:x.y.z'
 ```
+Before Play Services 15.0, projects importing multiple Play Services library had to have the same version number to avoid runtime crashes. If you haven't yet migrated to 15.0 or above, you can compile your project by excluding `com.google.android.gms`from this library as such:
 
-A lot of projects have multiple Play Services library in a project. All Play Services libraries must have the same version to avoid runtime crashes. 
-
-There will be a release corresponding to every Play Services update starting from `11.8.0`  so you can easily integrate the library in your project. If you're using an older Play Services version, you can still integrate the project like so:
 ```groovy
 implementation ('com.shaishavgandhi.rxads:rxads:x.y.z') {
     exclude group: 'com.google.android.gms'
 }
 ```
-and then add your preferred Play Services Ads version. 
+After the Play Services 15 release, this is not a problem. RxAds will have a corresponding release for every Play Services Ads release to give you the latest functionality. 
 
 ## Contributing
 
