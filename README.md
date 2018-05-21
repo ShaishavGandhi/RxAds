@@ -112,6 +112,8 @@ implementation ('com.shaishavgandhi.rxads:rxads:x.y.z') {
 ```
 After the Play Services 15 release, this is not a problem. RxAds will have a corresponding release for every Play Services Ads release to give you the latest functionality. 
 
+Snapshots of the development version are available in [Sonatype's snapshots repository.](https://oss.sonatype.org/content/repositories/snapshots/)
+
 ## Contributing
 
 Contributions are welcome! We're always looking to expand the usecases and would love to accept PRs.
