@@ -253,6 +253,27 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
         }
     }
 
+    /**
+     * Load multiple unified content ads given an adRequest
+     * Should be called from the main thread
+     *
+     * @param adRequest
+     * @param count
+     * @return Observable<UnifiedNativeAd>
+     */
+    @MainThread fun loadUnifiedAds(adRequest: AdRequest, count: Int): Observable<UnifiedNativeAd> {
+        return Observable.create { emitter ->
+            this.forUnifiedNativeAd { ad ->
+                emitter.onNext(ad)
+            }.withAdListener(object : AdListener() {
+                override fun onAdFailedToLoad(errorCode: Int) {
+                    super.onAdFailedToLoad(errorCode)
+                    emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
+                }
+            }).build().loadAds(adRequest, count)
+        }
+    }
+
 
 
 
