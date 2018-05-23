@@ -29,26 +29,26 @@ class RxInterstitialAdTest {
         interstitialAd = RxInterstitialAd(getTargetContext())
     }
 
-    @Ignore @Test fun loadAdWithSampleAdUnitId() {
+    @Test fun loadAdWithSampleAdUnitId() {
         val testObserver = TestObserver<InterstitialAd>()
         interstitialAd.loadAd(adUnitId, AdRequest.Builder().build())
                 .subscribeOn(AndroidSchedulers.mainThread())
                 .subscribe(testObserver)
 
-        testObserver.awaitTerminalEvent(2, TimeUnit.SECONDS)
+        testObserver.awaitTerminalEvent(10, TimeUnit.SECONDS)
 
         testObserver.assertNoErrors()
                 .assertValueCount(1)
                 .assertValue { !it.isLoading }
     }
 
-    @Ignore @Test fun loadAdWithWrongAdUnitId() {
+    @Test fun loadAdWithWrongAdUnitId() {
         val testObserver = TestObserver<InterstitialAd>()
         interstitialAd.loadAd("wrong_ad_unit", AdRequest.Builder().build())
                 .subscribeOn(AndroidSchedulers.mainThread())
                 .subscribe(testObserver)
 
-        testObserver.awaitTerminalEvent(2, TimeUnit.SECONDS)
+        testObserver.awaitTerminalEvent(10, TimeUnit.SECONDS)
 
         testObserver.assertNoValues()
         assertEquals(1, testObserver.errorCount())
