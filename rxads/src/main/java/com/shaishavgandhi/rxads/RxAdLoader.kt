@@ -6,10 +6,7 @@ import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.doubleclick.PublisherAdRequest
-import com.google.android.gms.ads.formats.NativeAppInstallAd
-import com.google.android.gms.ads.formats.NativeContentAd
-import com.google.android.gms.ads.formats.NativeCustomTemplateAd
-import com.google.android.gms.ads.formats.UnifiedNativeAd
+import com.google.android.gms.ads.formats.*
 import com.shaishavgandhi.rxads.error.AdRequestError
 import com.shaishavgandhi.rxads.error.AdRequestErrorException
 import io.reactivex.Observable
@@ -19,6 +16,11 @@ import io.reactivex.Single
  * Created by shaishav.gandhi on 1/13/18.
  */
 class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context, adUnitId) {
+
+    override fun withNativeAdOptions(options: NativeAdOptions?): RxAdLoader{
+        super.withNativeAdOptions(options)
+        return this
+    }
 
     /**
      * Load a native install ad using the provided
@@ -273,9 +275,4 @@ class RxAdLoader(context: Context, adUnitId: String) : AdLoader.Builder(context,
             }).build().loadAds(adRequest, count)
         }
     }
-
-
-
-
-
 }
