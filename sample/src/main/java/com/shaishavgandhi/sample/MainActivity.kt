@@ -6,10 +6,13 @@ import com.bumptech.glide.Glide
 import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
+import com.google.android.gms.ads.formats.NativeAdOptions
 import com.google.android.gms.ads.formats.NativeAppInstallAd
 import com.google.android.gms.ads.formats.NativeContentAd
 import com.shaishavgandhi.rxads.RxAdLoader
-import com.shaishavgandhi.rxads.asSingle
+import com.shaishavgandhi.rxads.extensions.asSingle
+import com.shaishavgandhi.rxads.extensions.loadInstallAd
+import com.shaishavgandhi.rxads.extensions.loadNativeContentAd
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import kotlinx.android.synthetic.main.activity_main.*
@@ -28,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         contentAd.setOnClickListener {
-            loadNativeContentAd()
+            loadNativeContentAdWithExtension()
         }
 
         interstitialAd.setOnClickListener {
@@ -39,6 +42,25 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadNativeInstallAd() {
         val disposable = RxAdLoader(this, "ca-app-pub-3940256099942544/2247696110")
+                .withNativeAdOptions(NativeAdOptions.Builder().setRequestMultipleImages(true).build())
+                .loadInstallAd(AdRequest.Builder().build())
+                .subscribeWith(object : DisposableSingleObserver<NativeAppInstallAd>() {
+
+                    override fun onSuccess(installAd: NativeAppInstallAd) {
+                        headline.text = installAd.headline
+                        Glide.with(image).load(installAd.images[0].uri).into(image)
+                    }
+
+                    override fun onError(e: Throwable) {
+                        e.printStackTrace()
+                    }
+                })
+
+        disposables.add(disposable)
+    }
+
+    private fun loadNativeInstallAdWithExtension() {
+        val disposable = AdLoader.Builder(this, "ca-app-pub-3940256099942544/2247696110")
                 .loadInstallAd(AdRequest.Builder().build())
                 .subscribeWith(object : DisposableSingleObserver<NativeAppInstallAd>() {
 
@@ -83,8 +105,23 @@ class MainActivity : AppCompatActivity() {
 
                 })
 
-        AdLoader.Builder(this, "ca-app-pub-3940256099942544/2247696110")
+        disposables.add(disposable)
+    }
 
+    private fun loadNativeContentAdWithExtension() {
+        val disposable = AdLoader.Builder(this, "ca-app-pub-3940256099942544/2247696110")
+                .loadNativeContentAd(AdRequest.Builder().build())
+                .subscribeWith(object : DisposableSingleObserver<NativeContentAd>() {
+                    override fun onSuccess(contentAd: NativeContentAd) {
+                        headline.text = contentAd.headline
+                        Glide.with(image).load(contentAd.images[0].uri).into(image)
+                    }
+
+                    override fun onError(e: Throwable) {
+                        e.printStackTrace()
+                    }
+
+                })
 
         disposables.add(disposable)
     }

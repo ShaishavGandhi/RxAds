@@ -1,9 +1,7 @@
-package com.shaishavgandhi.rxads
+package com.shaishavgandhi.rxads.extensions
 
-import android.annotation.SuppressLint
-import android.content.Context
+import android.support.annotation.MainThread
 import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import com.shaishavgandhi.rxads.error.AdRequestError
@@ -14,7 +12,7 @@ import io.reactivex.Single
  * Created by shaishav.gandhi on 1/19/18.
  */
 
-inline fun InterstitialAd.asSingle(adRequest: AdRequest): Single<InterstitialAd> = Single.create { emitter ->
+@MainThread fun InterstitialAd.asSingle(adRequest: AdRequest): Single<InterstitialAd> = Single.create{ emitter ->
     this.adListener = object : AdListener() {
         override fun onAdLoaded() {
             super.onAdLoaded()
