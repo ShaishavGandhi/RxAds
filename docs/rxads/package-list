@@ -1,0 +1,15 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:com.shaishavgandhi.rxads.extensions$asSingle(com.google.android.gms.ads.InterstitialAd, com.google.android.gms.ads.AdRequest)com.shaishavgandhi.rxads.extensions/com.google.android.gms.ads.-interstitial-ad/as-single.html
+$dokka.location:com.shaishavgandhi.rxads.extensions$loadInstallAd(com.google.android.gms.ads.AdLoader.Builder, com.google.android.gms.ads.AdRequest)com.shaishavgandhi.rxads.extensions/com.google.android.gms.ads.-ad-loader.-builder/load-install-ad.html
+$dokka.location:com.shaishavgandhi.rxads.extensions$loadInstallAd(com.google.android.gms.ads.AdLoader.Builder, com.google.android.gms.ads.doubleclick.PublisherAdRequest)com.shaishavgandhi.rxads.extensions/com.google.android.gms.ads.-ad-loader.-builder/load-install-ad.html
+$dokka.location:com.shaishavgandhi.rxads.extensions$loadInstallAds(com.google.android.gms.ads.AdLoader.Builder, com.google.android.gms.ads.AdRequest, kotlin.Int)com.shaishavgandhi.rxads.extensions/com.google.android.gms.ads.-ad-loader.-builder/load-install-ads.html
+$dokka.location:com.shaishavgandhi.rxads.extensions$loadNativeContentAd(com.google.android.gms.ads.AdLoader.Builder, com.google.android.gms.ads.AdRequest)com.shaishavgandhi.rxads.extensions/com.google.android.gms.ads.-ad-loader.-builder/load-native-content-ad.html
+$dokka.location:com.shaishavgandhi.rxads.extensions$loadNativeContentAd(com.google.android.gms.ads.AdLoader.Builder, com.google.android.gms.ads.doubleclick.PublisherAdRequest)com.shaishavgandhi.rxads.extensions/com.google.android.gms.ads.-ad-loader.-builder/load-native-content-ad.html
+$dokka.location:com.shaishavgandhi.rxads.extensions$loadNativeContentAds(com.google.android.gms.ads.AdLoader.Builder, com.google.android.gms.ads.AdRequest, kotlin.Int)com.shaishavgandhi.rxads.extensions/com.google.android.gms.ads.-ad-loader.-builder/load-native-content-ads.html
+$dokka.location:com.shaishavgandhi.rxads.extensions$loadNativeCustomTemplateAd(com.google.android.gms.ads.AdLoader.Builder, kotlin.String, com.google.android.gms.ads.AdRequest)com.shaishavgandhi.rxads.extensions/com.google.android.gms.ads.-ad-loader.-builder/load-native-custom-template-ad.html
+$dokka.location:com.shaishavgandhi.rxads.extensions$loadNativeCustomTemplateAd(com.google.android.gms.ads.AdLoader.Builder, kotlin.String, com.google.android.gms.ads.doubleclick.PublisherAdRequest)com.shaishavgandhi.rxads.extensions/com.google.android.gms.ads.-ad-loader.-builder/load-native-custom-template-ad.html
+$dokka.location:com.shaishavgandhi.rxads.extensions$loadNativeCustomTemplateAds(com.google.android.gms.ads.AdLoader.Builder, kotlin.String, com.google.android.gms.ads.AdRequest, kotlin.Int)com.shaishavgandhi.rxads.extensions/com.google.android.gms.ads.-ad-loader.-builder/load-native-custom-template-ads.html
+com.shaishavgandhi.rxads
+com.shaishavgandhi.rxads.error
+com.shaishavgandhi.rxads.extensions

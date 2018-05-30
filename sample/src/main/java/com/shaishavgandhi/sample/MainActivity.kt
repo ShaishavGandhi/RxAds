@@ -12,6 +12,7 @@ import com.google.android.gms.ads.formats.NativeContentAd
 import com.shaishavgandhi.rxads.RxAdLoader
 import com.shaishavgandhi.rxads.extensions.asSingle
 import com.shaishavgandhi.rxads.extensions.loadInstallAd
+import com.shaishavgandhi.rxads.extensions.loadInstallAds
 import com.shaishavgandhi.rxads.extensions.loadNativeContentAd
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
@@ -62,16 +63,11 @@ class MainActivity : AppCompatActivity() {
     private fun loadNativeInstallAdWithExtension() {
         val disposable = AdLoader.Builder(this, "ca-app-pub-3940256099942544/2247696110")
                 .loadInstallAd(AdRequest.Builder().build())
-                .subscribeWith(object : DisposableSingleObserver<NativeAppInstallAd>() {
-
-                    override fun onSuccess(installAd: NativeAppInstallAd) {
+                .subscribe({ installAd ->
                         headline.text = installAd.headline
                         Glide.with(image).load(installAd.images[0].uri).into(image)
-                    }
-
-                    override fun onError(e: Throwable) {
-                        e.printStackTrace()
-                    }
+                    }, { e ->
+                    e.printStackTrace()
                 })
 
         disposables.add(disposable)
@@ -130,14 +126,9 @@ class MainActivity : AppCompatActivity() {
         val ad = InterstitialAd(this)
         ad.adUnitId = "ca-app-pub-3940256099942544/1033173712"
         ad.asSingle(AdRequest.Builder().build())
-                .subscribeWith(object : DisposableSingleObserver<InterstitialAd>() {
-                    override fun onError(e: Throwable) {
-                        e.printStackTrace()
-                    }
-
-                    override fun onSuccess(interstitialAd: InterstitialAd) {
-                        interstitialAd.show()
-                    }
+                .subscribe({ ad ->
+                    ad.show()
+                }, { error ->
 
                 })
     }

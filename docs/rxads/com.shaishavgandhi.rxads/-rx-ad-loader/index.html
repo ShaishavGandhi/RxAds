@@ -1,0 +1,212 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RxAdLoader - rxads</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">rxads</a>&nbsp;/&nbsp;<a href="../index.html">com.shaishavgandhi.rxads</a>&nbsp;/&nbsp;<a href="./index.html">RxAdLoader</a><br/>
+<br/>
+<h1>RxAdLoader</h1>
+<code><span class="keyword">class </span><span class="identifier">RxAdLoader</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Builder</span></code>
+<p>Created by shaishav.gandhi on 1/13/18.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">RxAdLoader</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$<init>(android.content.Context, kotlin.String)/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">, </span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$<init>(android.content.Context, kotlin.String)/adUnitId">adUnitId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span></code>
+<p>Created by shaishav.gandhi on 1/13/18.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="load-install-ad.html">loadInstallAd</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">loadInstallAd</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$loadInstallAd(com.google.android.gms.ads.doubleclick.PublisherAdRequest)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">PublisherAdRequest</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><span class="identifier">NativeAppInstallAd</span><span class="symbol">&gt;</span></code>
+<p>Load a native install ad using the provided
+PublisherAdRequest. Must be called from
+the main thread</p>
+<code><span class="keyword">fun </span><span class="identifier">loadInstallAd</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$loadInstallAd(com.google.android.gms.ads.AdRequest)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">AdRequest</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><span class="identifier">NativeAppInstallAd</span><span class="symbol">&gt;</span></code>
+<p>Load a native install ad with the provided
+AdRequest. Must be called from main thread</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="load-install-ads.html">loadInstallAds</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">loadInstallAds</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$loadInstallAds(com.google.android.gms.ads.AdRequest, kotlin.Int)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">AdRequest</span><span class="symbol">, </span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$loadInstallAds(com.google.android.gms.ads.AdRequest, kotlin.Int)/count">count</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">NativeAppInstallAd</span><span class="symbol">&gt;</span></code>
+<p>Load multiple native install ads with
+provided AdRequest. Called from
+main thread</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="load-native-content-ad.html">loadNativeContentAd</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">loadNativeContentAd</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$loadNativeContentAd(com.google.android.gms.ads.AdRequest)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">AdRequest</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><span class="identifier">NativeContentAd</span><span class="symbol">&gt;</span></code>
+<p>Load native content ad given the adRequest.
+Must be called from the main thread</p>
+<code><span class="keyword">fun </span><span class="identifier">loadNativeContentAd</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$loadNativeContentAd(com.google.android.gms.ads.doubleclick.PublisherAdRequest)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">PublisherAdRequest</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><span class="identifier">NativeContentAd</span><span class="symbol">&gt;</span></code>
+<p>Load native content ad with given publisherAdRequest
+Call from main thread</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="load-native-content-ads.html">loadNativeContentAds</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">loadNativeContentAds</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$loadNativeContentAds(com.google.android.gms.ads.AdRequest, kotlin.Int)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">AdRequest</span><span class="symbol">, </span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$loadNativeContentAds(com.google.android.gms.ads.AdRequest, kotlin.Int)/count">count</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">NativeContentAd</span><span class="symbol">&gt;</span></code>
+<p>Load multiple native content ads given the
+adRequest and count of ads</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="load-native-custom-template-ad.html">loadNativeCustomTemplateAd</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">loadNativeCustomTemplateAd</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$loadNativeCustomTemplateAd(kotlin.String, com.google.android.gms.ads.AdRequest)/template">template</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$loadNativeCustomTemplateAd(kotlin.String, com.google.android.gms.ads.AdRequest)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">AdRequest</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><span class="identifier">NativeCustomTemplateAd</span><span class="symbol">&gt;</span></code>
+<p>Load native custom template ad using provided
+templateId and adRequest. Call from main thread</p>
+<code><span class="keyword">fun </span><span class="identifier">loadNativeCustomTemplateAd</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$loadNativeCustomTemplateAd(kotlin.String, com.google.android.gms.ads.doubleclick.PublisherAdRequest)/template">template</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$loadNativeCustomTemplateAd(kotlin.String, com.google.android.gms.ads.doubleclick.PublisherAdRequest)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">PublisherAdRequest</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><span class="identifier">NativeCustomTemplateAd</span><span class="symbol">&gt;</span></code>
+<p>Load native custom template ad using provided
+template and publisherAdRequest. Call from
+main thread</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="load-native-custom-template-ads.html">loadNativeCustomTemplateAds</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">loadNativeCustomTemplateAds</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$loadNativeCustomTemplateAds(kotlin.String, com.google.android.gms.ads.AdRequest, kotlin.Int)/template">template</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$loadNativeCustomTemplateAds(kotlin.String, com.google.android.gms.ads.AdRequest, kotlin.Int)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">AdRequest</span><span class="symbol">, </span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$loadNativeCustomTemplateAds(kotlin.String, com.google.android.gms.ads.AdRequest, kotlin.Int)/count">count</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">NativeCustomTemplateAd</span><span class="symbol">&gt;</span></code>
+<p>Load multiple native custom template ad using
+provided template, adRequest and count. Call
+from main thread</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="load-unified-ad.html">loadUnifiedAd</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">loadUnifiedAd</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$loadUnifiedAd(com.google.android.gms.ads.AdRequest)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">AdRequest</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><span class="identifier">UnifiedNativeAd</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">loadUnifiedAd</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$loadUnifiedAd(com.google.android.gms.ads.doubleclick.PublisherAdRequest)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">PublisherAdRequest</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><span class="identifier">UnifiedNativeAd</span><span class="symbol">&gt;</span></code>
+<p>Load unified content ad given the adRequest.
+Should be called from the main thread</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="load-unified-ads.html">loadUnifiedAds</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">loadUnifiedAds</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$loadUnifiedAds(com.google.android.gms.ads.AdRequest, kotlin.Int)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">AdRequest</span><span class="symbol">, </span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$loadUnifiedAds(com.google.android.gms.ads.AdRequest, kotlin.Int)/count">count</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">UnifiedNativeAd</span><span class="symbol">&gt;</span></code>
+<p>Load multiple unified content ads given an adRequest
+Should be called from the main thread</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="with-native-ad-options.html">withNativeAdOptions</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">withNativeAdOptions</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.RxAdLoader$withNativeAdOptions(com.google.android.gms.ads.formats.NativeAdOptions)/options">options</span><span class="symbol">:</span>&nbsp;<span class="identifier">NativeAdOptions</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">RxAdLoader</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../com.shaishavgandhi.rxads.extensions/com.google.android.gms.ads.-ad-loader.-builder/load-install-ad.html">loadInstallAd</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Builder</span><span class="symbol">.</span><span class="identifier">loadInstallAd</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.extensions$loadInstallAd(com.google.android.gms.ads.AdLoader.Builder, com.google.android.gms.ads.AdRequest)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">AdRequest</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><span class="identifier">NativeAppInstallAd</span><span class="symbol">&gt;</span></code>
+<p>Load a native install ad using the provided
+PublisherAdRequest. Must be called from
+the main thread</p>
+<code><span class="keyword">fun </span><span class="identifier">Builder</span><span class="symbol">.</span><span class="identifier">loadInstallAd</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.extensions$loadInstallAd(com.google.android.gms.ads.AdLoader.Builder, com.google.android.gms.ads.doubleclick.PublisherAdRequest)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">PublisherAdRequest</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><span class="identifier">NativeAppInstallAd</span><span class="symbol">&gt;</span></code>
+<p>Load a native install ad with the provided
+AdRequest. Must be called from main thread</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.shaishavgandhi.rxads.extensions/com.google.android.gms.ads.-ad-loader.-builder/load-install-ads.html">loadInstallAds</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Builder</span><span class="symbol">.</span><span class="identifier">loadInstallAds</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.extensions$loadInstallAds(com.google.android.gms.ads.AdLoader.Builder, com.google.android.gms.ads.AdRequest, kotlin.Int)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">AdRequest</span><span class="symbol">, </span><span class="identifier" id="com.shaishavgandhi.rxads.extensions$loadInstallAds(com.google.android.gms.ads.AdLoader.Builder, com.google.android.gms.ads.AdRequest, kotlin.Int)/count">count</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">NativeAppInstallAd</span><span class="symbol">&gt;</span></code>
+<p>Load multiple native install ads with
+provided AdRequest. Called from
+main thread</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.shaishavgandhi.rxads.extensions/com.google.android.gms.ads.-ad-loader.-builder/load-native-content-ad.html">loadNativeContentAd</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Builder</span><span class="symbol">.</span><span class="identifier">loadNativeContentAd</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.extensions$loadNativeContentAd(com.google.android.gms.ads.AdLoader.Builder, com.google.android.gms.ads.doubleclick.PublisherAdRequest)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">PublisherAdRequest</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><span class="identifier">NativeContentAd</span><span class="symbol">&gt;</span></code>
+<p>Load native content ad with given publisherAdRequest
+Call from main thread</p>
+<code><span class="keyword">fun </span><span class="identifier">Builder</span><span class="symbol">.</span><span class="identifier">loadNativeContentAd</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.extensions$loadNativeContentAd(com.google.android.gms.ads.AdLoader.Builder, com.google.android.gms.ads.AdRequest)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">AdRequest</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><span class="identifier">NativeContentAd</span><span class="symbol">&gt;</span></code>
+<p>Load native content ad given the adRequest.
+Must be called from the main thread</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.shaishavgandhi.rxads.extensions/com.google.android.gms.ads.-ad-loader.-builder/load-native-content-ads.html">loadNativeContentAds</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Builder</span><span class="symbol">.</span><span class="identifier">loadNativeContentAds</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.extensions$loadNativeContentAds(com.google.android.gms.ads.AdLoader.Builder, com.google.android.gms.ads.AdRequest, kotlin.Int)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">AdRequest</span><span class="symbol">, </span><span class="identifier" id="com.shaishavgandhi.rxads.extensions$loadNativeContentAds(com.google.android.gms.ads.AdLoader.Builder, com.google.android.gms.ads.AdRequest, kotlin.Int)/count">count</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">NativeContentAd</span><span class="symbol">&gt;</span></code>
+<p>Load multiple native content ads given the
+adRequest and count of ads</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.shaishavgandhi.rxads.extensions/com.google.android.gms.ads.-ad-loader.-builder/load-native-custom-template-ad.html">loadNativeCustomTemplateAd</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Builder</span><span class="symbol">.</span><span class="identifier">loadNativeCustomTemplateAd</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.extensions$loadNativeCustomTemplateAd(com.google.android.gms.ads.AdLoader.Builder, kotlin.String, com.google.android.gms.ads.AdRequest)/template">template</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.shaishavgandhi.rxads.extensions$loadNativeCustomTemplateAd(com.google.android.gms.ads.AdLoader.Builder, kotlin.String, com.google.android.gms.ads.AdRequest)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">AdRequest</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><span class="identifier">NativeCustomTemplateAd</span><span class="symbol">&gt;</span></code>
+<p>Load native custom template ad using provided
+templateId and adRequest. Call from main thread</p>
+<code><span class="keyword">fun </span><span class="identifier">Builder</span><span class="symbol">.</span><span class="identifier">loadNativeCustomTemplateAd</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.extensions$loadNativeCustomTemplateAd(com.google.android.gms.ads.AdLoader.Builder, kotlin.String, com.google.android.gms.ads.doubleclick.PublisherAdRequest)/template">template</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.shaishavgandhi.rxads.extensions$loadNativeCustomTemplateAd(com.google.android.gms.ads.AdLoader.Builder, kotlin.String, com.google.android.gms.ads.doubleclick.PublisherAdRequest)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">PublisherAdRequest</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><span class="identifier">NativeCustomTemplateAd</span><span class="symbol">&gt;</span></code>
+<p>Load native custom template ad using provided
+template and publisherAdRequest. Call from
+main thread</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.shaishavgandhi.rxads.extensions/com.google.android.gms.ads.-ad-loader.-builder/load-native-custom-template-ads.html">loadNativeCustomTemplateAds</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Builder</span><span class="symbol">.</span><span class="identifier">loadNativeCustomTemplateAds</span><span class="symbol">(</span><span class="identifier" id="com.shaishavgandhi.rxads.extensions$loadNativeCustomTemplateAds(com.google.android.gms.ads.AdLoader.Builder, kotlin.String, com.google.android.gms.ads.AdRequest, kotlin.Int)/template">template</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.shaishavgandhi.rxads.extensions$loadNativeCustomTemplateAds(com.google.android.gms.ads.AdLoader.Builder, kotlin.String, com.google.android.gms.ads.AdRequest, kotlin.Int)/adRequest">adRequest</span><span class="symbol">:</span>&nbsp;<span class="identifier">AdRequest</span><span class="symbol">, </span><span class="identifier" id="com.shaishavgandhi.rxads.extensions$loadNativeCustomTemplateAds(com.google.android.gms.ads.AdLoader.Builder, kotlin.String, com.google.android.gms.ads.AdRequest, kotlin.Int)/count">count</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">NativeCustomTemplateAd</span><span class="symbol">&gt;</span></code>
+<p>Load multiple native custom template ad using
+provided template, adRequest and count. Call
+from main thread</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
