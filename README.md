@@ -8,21 +8,39 @@ RxJava wrapper for Play Services Ads. The library currently supports loading Nat
 ## Philosophy
 RxAds' only aim is to make _ad loading_ reactive. The library does not provide ways to convert clicks to ads as streams or to provide various streams for it's varied callback. 
 
-However we do want all functionality to be present so that you can attach your own listeners etc. 
-
-Hence, classes in this library extend their corresponding Play Services Ads class and only add reactive functionality for _ad loading_.
+However, Play Services Ads is a big SDK and it's not the aim of this library to replicate all functionality. Hence, RxAds builds on existing functionality and allows you to load ads using reactive streams. 
 
 
 For example:
-```kotlin
-AdLoader.Builder().withNativeAdOptions(...)
+```java
+AdLoader adLoader = new AdLoader.Builder(context, "ca-app-pub-3940256099942544/2247696110")
+    .forContentAd(new OnContentAdLoadedListener() {
+        @Override
+        public void onContentAdLoaded(NativeContentAd contentAd) {
+            // Show the content ad.
+        }
+    })
+    .withAdListener(new AdListener() {
+        @Override
+        public void onAdFailedToLoad(int errorCode) {
+            // Handle the failure by logging, altering the UI, and so on.
+        }
+    })
+    .withNativeAdOptions(new NativeAdOptions.Builder()
+            // Methods in the NativeAdOptions.Builder class can be
+            // used here to specify individual options settings.
+            .build())
+    .build();
+
+adLoader.loadAd(new PublisherAdRequest.Builder().build());
 ```
 can easily become
-```kotlin
-RxAdLoader(context, "ad_unit_id")
-  .withNativeAdOptions(...)
-  .loadInstallAd(AdRequest.Builder().build())
-  .subscribe(...)
+```java
+Disposable disposable = new RxAdLoader(context, "ad_unit_id") // Initialize same as AdLoader.Builder
+                // Chain any other options from Play Services Ads
+                .withNativeAdOptions(new NativeAdOptions.Builder().build())
+                .loadNativeContentAd(new AdRequest.Builder().build()) // Load ad
+                .subscribe(...); 
 ```
 You can keep chaining your custom listeners and just call `loadAd(args...)` when you're done.
 
@@ -78,16 +96,18 @@ ad.loadAd("ad_unit_id", new AdRequest.Builder().build())
             }
         });
 ```
-OR
+## Kotlin Extensions
 
-Use Kotlin extension function
+The library is written in Kotlin and it has Kotlin extensions for most APIs
+
+#### Interstitial Ad
 ```kotlin
 val ad = InterstitialAd(this)
 ad.adUnitId = "ad_unit_id"
 ad.asSingle(AdRequest.Builder().build())
         .subscribeWith(object : DisposableSingleObserver<InterstitialAd>() {
             override fun onError(e: Throwable) {
-
+              // Handle error
             }
 
             override fun onSuccess(interstitialAd: InterstitialAd) {
@@ -96,6 +116,21 @@ ad.asSingle(AdRequest.Builder().build())
 
         })
 ```
+
+#### Native Install Ad
+```kotlin
+AdLoader.Builder(this, "ad_unit_id")
+                .loadInstallAd(AdRequest.Builder().build())
+                .subscribe({ installAd ->
+                    // Set to view
+                    }, { e ->
+                    // Handle error
+                })
+```
+
+## Error Handling
+
+If you've used the Play Services Ads SDK, the error handling leaves much to be desired. It returns an error code, which you must then search for. RxAds makes it easy and generates a human readable error message actually telling you what happened. 
 
 ## Download
 
