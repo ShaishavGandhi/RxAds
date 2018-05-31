@@ -8,6 +8,7 @@ import com.google.android.gms.ads.doubleclick.PublisherAdRequest
 import com.google.android.gms.ads.formats.NativeAppInstallAd
 import com.google.android.gms.ads.formats.NativeContentAd
 import com.google.android.gms.ads.formats.NativeCustomTemplateAd
+import com.google.android.gms.ads.formats.UnifiedNativeAd
 import com.shaishavgandhi.rxads.error.AdRequestError
 import com.shaishavgandhi.rxads.error.AdRequestErrorException
 import io.reactivex.Observable
@@ -179,6 +180,61 @@ import io.reactivex.Single
  */
 @MainThread fun AdLoader.Builder.loadNativeContentAds(adRequest: AdRequest, count: Int): Observable<NativeContentAd> = Observable.create { emitter ->
     this.forContentAd { ad ->
+        emitter.onNext(ad)
+    }.withAdListener(object : AdListener() {
+        override fun onAdFailedToLoad(errorCode: Int) {
+            super.onAdFailedToLoad(errorCode)
+            emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
+        }
+    }).build().loadAds(adRequest, count)
+}
+
+/**
+ * Load unified content ad given the adRequest.
+ * Should be called from the main thread
+ *
+ * @param adRequest AdRequest
+ * @return Single<UnifiedNativeAd>
+ */
+@MainThread fun AdLoader.Builder.loadUnifiedAd(adRequest: AdRequest): Single<UnifiedNativeAd> = Single.create { emitter ->
+    this.forUnifiedNativeAd { ad ->
+        emitter.onSuccess(ad)
+    }.withAdListener(object : AdListener() {
+        override fun onAdFailedToLoad(errorCode: Int) {
+            super.onAdFailedToLoad(errorCode)
+            emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
+        }
+    }).build().loadAd(adRequest)
+}
+
+/**
+ * Load unified content ad given the adRequest.
+ * Should be called from the main thread
+ *
+ * @param adRequest PublisherAdRequest
+ * @return Single<UnifiedNativeAd>
+ */
+@MainThread fun AdLoader.Builder.loadUnifiedAd(adRequest: PublisherAdRequest): Single<UnifiedNativeAd> = Single.create { emitter ->
+    this.forUnifiedNativeAd { ad ->
+        emitter.onSuccess(ad)
+    }.withAdListener(object : AdListener() {
+        override fun onAdFailedToLoad(errorCode: Int) {
+            super.onAdFailedToLoad(errorCode)
+            emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
+        }
+    }).build().loadAd(adRequest)
+}
+
+/**
+ * Load multiple unified content ads given an adRequest
+ * Should be called from the main thread
+ *
+ * @param adRequest
+ * @param count
+ * @return Observable<UnifiedNativeAd>
+ */
+@MainThread fun AdLoader.Builder.loadUnifiedAds(adRequest: AdRequest, count: Int): Observable<UnifiedNativeAd> = Observable.create { emitter ->
+    this.forUnifiedNativeAd { ad ->
         emitter.onNext(ad)
     }.withAdListener(object : AdListener() {
         override fun onAdFailedToLoad(errorCode: Int) {
