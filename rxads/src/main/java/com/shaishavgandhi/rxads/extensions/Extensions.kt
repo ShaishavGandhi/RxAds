@@ -21,7 +21,7 @@ import io.reactivex.Single
 
         override fun onAdFailedToLoad(errorCode: Int) {
             super.onAdFailedToLoad(errorCode)
-            emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
+            emitter.tryOnError(AdRequestErrorException(AdRequestError(errorCode)))
         }
     }
     this.loadAd(adRequest)

@@ -28,7 +28,7 @@ import io.reactivex.Single
     }.withAdListener(object : AdListener() {
         override fun onAdFailedToLoad(errorCode: Int) {
             super.onAdFailedToLoad(errorCode)
-            emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
+            emitter.tryOnError(AdRequestErrorException(AdRequestError(errorCode)))
         }
     }).build().loadAd(adRequest)
 }
@@ -46,7 +46,7 @@ import io.reactivex.Single
     }.withAdListener(object : AdListener() {
         override fun onAdFailedToLoad(errorCode: Int) {
             super.onAdFailedToLoad(errorCode)
-            emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
+            emitter.tryOnError(AdRequestErrorException(AdRequestError(errorCode)))
         }
     }).build().loadAd(adRequest)
 }
@@ -66,7 +66,7 @@ import io.reactivex.Single
     }.withAdListener(object : AdListener() {
         override fun onAdFailedToLoad(errorCode: Int) {
             super.onAdFailedToLoad(errorCode)
-            emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
+            emitter.tryOnError(AdRequestErrorException(AdRequestError(errorCode)))
         }
     }).build().loadAds(adRequest, count)
 }
@@ -86,7 +86,7 @@ import io.reactivex.Single
     }, { _, _ -> }).withAdListener(object : AdListener() {
         override fun onAdFailedToLoad(errorCode: Int) {
             super.onAdFailedToLoad(errorCode)
-            emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
+            emitter.tryOnError(AdRequestErrorException(AdRequestError(errorCode)))
         }
     }).build().loadAd(adRequest)
 }
@@ -107,7 +107,7 @@ import io.reactivex.Single
     }, { _, _ -> }).withAdListener(object : AdListener() {
         override fun onAdFailedToLoad(errorCode: Int) {
             super.onAdFailedToLoad(errorCode)
-            emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
+            emitter.tryOnError(AdRequestErrorException(AdRequestError(errorCode)))
         }
     }).build().loadAd(adRequest)
 }
@@ -128,7 +128,7 @@ import io.reactivex.Single
     }, { _, _ -> }).withAdListener(object : AdListener() {
         override fun onAdFailedToLoad(errorCode: Int) {
             super.onAdFailedToLoad(errorCode)
-            emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
+            emitter.tryOnError(AdRequestErrorException(AdRequestError(errorCode)))
         }
     }).build().loadAds(adRequest, count)
 }
@@ -146,7 +146,7 @@ import io.reactivex.Single
     }.withAdListener(object : AdListener() {
         override fun onAdFailedToLoad(errorCode: Int) {
             super.onAdFailedToLoad(errorCode)
-            emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
+            emitter.tryOnError(AdRequestErrorException(AdRequestError(errorCode)))
         }
     }).build().loadAd(adRequest)
 }
@@ -164,7 +164,7 @@ import io.reactivex.Single
     }.withAdListener(object : AdListener() {
         override fun onAdFailedToLoad(errorCode: Int) {
             super.onAdFailedToLoad(errorCode)
-            emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
+            emitter.tryOnError(AdRequestErrorException(AdRequestError(errorCode)))
         }
     }).build().loadAd(adRequest)
 }
@@ -184,7 +184,7 @@ import io.reactivex.Single
     }.withAdListener(object : AdListener() {
         override fun onAdFailedToLoad(errorCode: Int) {
             super.onAdFailedToLoad(errorCode)
-            emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
+            emitter.tryOnError(AdRequestErrorException(AdRequestError(errorCode)))
         }
     }).build().loadAds(adRequest, count)
 }
@@ -202,7 +202,7 @@ import io.reactivex.Single
     }.withAdListener(object : AdListener() {
         override fun onAdFailedToLoad(errorCode: Int) {
             super.onAdFailedToLoad(errorCode)
-            emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
+            emitter.tryOnError(AdRequestErrorException(AdRequestError(errorCode)))
         }
     }).build().loadAd(adRequest)
 }
@@ -220,7 +220,7 @@ import io.reactivex.Single
     }.withAdListener(object : AdListener() {
         override fun onAdFailedToLoad(errorCode: Int) {
             super.onAdFailedToLoad(errorCode)
-            emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
+            emitter.tryOnError(AdRequestErrorException(AdRequestError(errorCode)))
         }
     }).build().loadAd(adRequest)
 }
@@ -239,7 +239,7 @@ import io.reactivex.Single
     }.withAdListener(object : AdListener() {
         override fun onAdFailedToLoad(errorCode: Int) {
             super.onAdFailedToLoad(errorCode)
-            emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
+            emitter.tryOnError(AdRequestErrorException(AdRequestError(errorCode)))
         }
     }).build().loadAds(adRequest, count)
 }

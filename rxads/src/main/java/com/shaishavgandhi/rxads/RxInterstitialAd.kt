@@ -37,7 +37,7 @@ class RxInterstitialAd(private val context: Context) {
 
                 override fun onAdFailedToLoad(errorCode: Int) {
                     super.onAdFailedToLoad(errorCode)
-                    emitter.onError(AdRequestErrorException(AdRequestError(errorCode)))
+                    emitter.tryOnError(AdRequestErrorException(AdRequestError(errorCode)))
                 }
             }
             interstitialAd.loadAd(adRequest)
