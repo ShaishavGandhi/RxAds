@@ -1,12 +1,12 @@
 package com.shaishavgandhi.rxads
 
-import android.support.test.InstrumentationRegistry.getTargetContext
-import android.support.test.runner.AndroidJUnit4
+import androidx.test.InstrumentationRegistry.getTargetContext
+import androidx.test.runner.AndroidJUnit4
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.TestObserver
-import junit.framework.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Ignore
 import org.junit.Test
