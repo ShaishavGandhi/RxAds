@@ -1,6 +1,6 @@
 package com.shaishavgandhi.rxads.extensions
 
-import android.support.annotation.MainThread
+import androidx.annotation.MainThread
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
