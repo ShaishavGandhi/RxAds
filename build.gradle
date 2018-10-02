@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.2.70'
+    ext.kotlin_version = '1.2.71'
     ext.dokka_version = '0.9.17'
     repositories {
         google()
@@ -9,7 +9,7 @@ buildscript {
         maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.0-rc03'
+        classpath 'com.android.tools.build:gradle:3.2.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:${dokka_version}"
 
@@ -35,7 +35,7 @@ ext {
     def supportLibVersion = "27.0.2"
     def glideVersion = "4.5.0"
 
-    rxJava = "io.reactivex.rxjava2:rxjava:2.1.5"
+    rxJava = "io.reactivex.rxjava2:rxjava:2.2.0"
     rxAndroid = "io.reactivex.rxjava2:rxandroid:2.0.1"
     ads = "com.google.android.gms:play-services-ads:$playServicesVersion"
     appcompat = "androidx.appcompat:appcompat:1.0.0"

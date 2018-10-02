@@ -10,13 +10,9 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
     }
-
 }
 
 dokka {
@@ -30,7 +26,6 @@ dependencies {
 
     api rootProject.ext.ads
     api rootProject.ext.rxJava
-    api rootProject.ext.rxAndroid
     implementation rootProject.ext.kotlin
 
     androidTestImplementation rootProject.ext.testRunner

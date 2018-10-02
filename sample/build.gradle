@@ -38,6 +38,6 @@ dependencies {
     testImplementation rootProject.ext.junit
 
 //    implementation project(":rxads")
-    implementation "com.shaishavgandhi.rxads:rxads:1.1.0-SNAPSHOT"
+    implementation "com.shaishavgandhi.rxads:rxads:1.0.2"
 
 }
