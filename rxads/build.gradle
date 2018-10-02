@@ -23,6 +23,7 @@ dokka {
 dependencies {
     testImplementation rootProject.ext.junit
     testImplementation rootProject.ext.mockito
+    testImplementation rootProject.ext.rxAndroid
 
     api rootProject.ext.ads
     api rootProject.ext.rxJava
