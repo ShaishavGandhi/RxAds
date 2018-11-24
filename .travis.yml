@@ -36,8 +36,6 @@ jdk:
 notifications:
         email: false
 
-sudo: false
-
 env:
   global:
     # install timeout in minutes (2 minutes by default)
