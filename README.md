@@ -105,15 +105,10 @@ The library is written in Kotlin and it has Kotlin extensions for most APIs
 val ad = InterstitialAd(this)
 ad.adUnitId = "ad_unit_id"
 ad.asSingle(AdRequest.Builder().build())
-        .subscribeWith(object : DisposableSingleObserver<InterstitialAd>() {
-            override fun onError(e: Throwable) {
-              // Handle error
-            }
-
-            override fun onSuccess(interstitialAd: InterstitialAd) {
-                interstitialAd.show()
-            }
-
+        .subscribe({ interstitialAd -> 
+            interstitialAd.show()
+        }, { throwable -> 
+            // Handle error
         })
 ```
 
